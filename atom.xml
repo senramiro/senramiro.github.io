@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://senramiro.github.io</id>
     <title>Senra Miro</title>
-    <updated>2021-12-06T09:24:49.999Z</updated>
+    <updated>2021-12-06T09:39:00.717Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://senramiro.github.io"/>
     <link rel="self" href="https://senramiro.github.io/atom.xml"/>
@@ -10,91 +10,6 @@
     <logo>https://senramiro.github.io/images/avatar.png</logo>
     <icon>https://senramiro.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Senra Miro</rights>
-    <entry>
-        <title type="html"><![CDATA[瀑布流]]></title>
-        <id>https://senramiro.github.io/post/pu-bu-liu/</id>
-        <link href="https://senramiro.github.io/post/pu-bu-liu/">
-        </link>
-        <updated>2021-12-06T07:32:38.000Z</updated>
-        <content type="html"><![CDATA[<p>/* html文件 */</p>
-<!-- 使用multi-columns实现瀑布流 -->
-<div id="root">
-    <div class="item">
-        <img class="itemImg" src="../images/1.jpeg" alt=""/>
-        <div class="userInfo">
-            <img class="avatar" src="../images/gift.png" alt=""/>
-            <span class="username">牵起你的左手护着你</span>
-        </div>
-    </div>
-    <div class="item">
-        <img class="itemImg" src="../images/2.jpg" alt=""/>
-        <div class="userInfo">
-            <img class="avatar" src="../images/gift.png" alt=""/>
-            <span class="username">牵起你的左手护着你</span>
-        </div>
-    </div>
-    <div class="item">
-        <img class="itemImg" src="../images/3.jpg" alt=""/>
-        <div class="userInfo">
-            <img class="avatar" src="../images/gift.png" alt=""/>
-            <span class="username">牵起你的左手护着你</span>
-        </div>
-    </div>
-    <div class="item">
-        <img class="itemImg" src="../images/4.jpg" alt=""/>
-        <div class="userInfo">
-            <img class="avatar" src="../images/gift.png" alt=""/>
-            <span class="username">牵起你的左手护着你</span>
-        </div>
-    </div>
-    <div class="item">
-        <img class="itemImg" src="../images/5.jpeg" alt=""/>
-        <div class="userInfo">
-            <img class="avatar" src="../images/gift.png" alt=""/>
-            <span class="username">牵起你的左手护着你</span>
-        </div>
-    </div>
-</div>/* html文件 */
-<!-- 使用multi-columns实现瀑布流 -->
-<div id="root">
-    <div class="item">
-        <img class="itemImg" src="../images/1.jpeg" alt=""/>
-        <div class="userInfo">
-            <img class="avatar" src="../images/gift.png" alt=""/>
-            <span class="username">牵起你的左手护着你</span>
-        </div>
-    </div>
-    <div class="item">
-        <img class="itemImg" src="../images/2.jpg" alt=""/>
-        <div class="userInfo">
-            <img class="avatar" src="../images/gift.png" alt=""/>
-            <span class="username">牵起你的左手护着你</span>
-        </div>
-    </div>
-    <div class="item">
-        <img class="itemImg" src="../images/3.jpg" alt=""/>
-        <div class="userInfo">
-            <img class="avatar" src="../images/gift.png" alt=""/>
-            <span class="username">牵起你的左手护着你</span>
-        </div>
-    </div>
-    <div class="item">
-        <img class="itemImg" src="../images/4.jpg" alt=""/>
-        <div class="userInfo">
-            <img class="avatar" src="../images/gift.png" alt=""/>
-            <span class="username">牵起你的左手护着你</span>
-        </div>
-    </div>
-    <div class="item">
-        <img class="itemImg" src="../images/5.jpeg" alt=""/>
-        <div class="userInfo">
-            <img class="avatar" src="../images/gift.png" alt=""/>
-            <span class="username">牵起你的左手护着你</span>
-        </div>
-    </div>
-</div>
-]]></content>
-    </entry>
     <entry>
         <title type="html"><![CDATA[前端常见问题（ing）]]></title>
         <id>https://senramiro.github.io/post/webCode/</id>
