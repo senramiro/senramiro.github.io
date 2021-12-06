@@ -2,17 +2,17 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>start now！ | Senra Miro</title>
+<title>前端常见问题（ing） | Senra Miro</title>
 <link rel="shortcut icon" href="https://senramiro.github.io/favicon.ico?v=1638779164410">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://senramiro.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="start now！ | Senra Miro - Atom Feed" href="https://senramiro.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="前端常见问题（ing） | Senra Miro - Atom Feed" href="https://senramiro.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="learning
-" />
+    <meta name="description" content="1.onclick=&quot;javascript:&quot;
+&lt;img src=&quot;&quot; onclick=&quot;javascript:location.href='index.php'&quot; &gt;..." />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -75,32 +75,60 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              start now！
+              前端常见问题（ing）
             </h2>
             <div class="post-info">
               <span>
                 2021-12-06
               </span>
               <span>
-                1 min read
+                2 min read
               </span>
               
             </div>
             
-              <img class="post-feature-image" src="https://senramiro.github.io/post-images/hello-senra-miro.jpg" alt="">
-            
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>learning</p>
+                <h1 id="1onclickjavascript">1.onclick=&quot;javascript:&quot;</h1>
+<p><code>&lt;img src=&quot;&quot; onclick=&quot;javascript:location.href='index.php'&quot; &gt;</code>可直接跳页面</p>
+<p>href=&quot;javascript:xxx(this);&quot;和οnclick=&quot;javascript:xxx(this);&quot;前者的this拿不到触发事件的A标签，而后者可以拿到；<br>
+<code>&lt;a href=&quot;#&quot; οnclick=&quot;turnPage(1,10)&quot;&gt;</code>href=&quot;#&quot;会导致分页在跳转时页面先跳到当前页面顶部<br>
+可以写成<code>&lt;a href=&quot;javascript:void(0);&quot; οnclick=&quot;turnPage(1,10,this)&quot;&gt;</code>或<br>
+<code>&lt;a href=&quot;javascript:turnPage(1,10);&quot; &gt;</code></p>
+<h1 id="2">2.&amp;&amp; ||</h1>
+<p><code>&lt;td ng-bind=&quot;item.ISWORDSGROUP=='0'&amp;&amp;'单词'||item.ISWORDSGROUP=='1'&amp;&amp;'词组'&quot;&gt;&lt;/td&gt;</code><br>
+只要“&amp;&amp;”前面是false，无论“&amp;&amp;”后面是true还是false，结果都将返“&amp;&amp;”前面的值；<br>
+只要“&amp;&amp;”前面是true，无论“&amp;&amp;”后面是true还是false，结果都将返“&amp;&amp;”后面的值；</p>
+<h1 id="3iframe切换">3.iframe切换</h1>
+<pre><code>$(&quot;#screen&quot;).html(&quot;&quot;);
+let iframesss = `&lt;iframe src='${url}' id=&quot;mainFrame&quot;  frameborder=&quot;0&quot;&gt; &lt;/iframe&gt;`;
+$(&quot;#screen&quot;).append(iframesss);
+&lt;div id=&quot;screen&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>问题：直接改变url，页面不更新iframe里面的内容，所以删除全部内容再添加。</p>
 
               </div>
               <div class="toc-container">
-                
+                <ul class="markdownIt-TOC">
+<li><a href="#1onclickjavascript">1.onclick=&quot;javascript:&quot;</a></li>
+<li><a href="#2">2.&amp;&amp; ||</a></li>
+<li><a href="#3iframe%E5%88%87%E6%8D%A2">3.iframe切换</a></li>
+</ul>
+
               </div>
             </div>
           </article>
         </div>
 
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://senramiro.github.io/post/hello-senra-miro/">
+              <h3 class="post-title">
+                start now！
+              </h3>
+            </a>
+          </div>
         
 
         
