@@ -1,6 +1,0 @@
-export const QUERY_HELP = 'QUERY_HELP';
-export const QUERY_HELP_PENDING = 'QUERY_HELP_PENDING';
-export const QUERY_HELP_SUCCESS = 'QUERY_HELP_SUCCESS';
-export const QUERY_HELP_ERROR = 'QUERY_HELP_ERROR';
-
-export const SELECT_HELP = 'SELECT_HELP';

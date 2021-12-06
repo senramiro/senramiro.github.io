@@ -1,2 +1,0 @@
-var Redux = require('redux');
-
