@@ -7,8 +7,9 @@ body{
 #rotary{
     width: 500px;
     height: 500px;
-    border: 2px solid #e9704a;
+    /* border: 2px solid #e9704a; */
     margin: 0 auto;
+    padding: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -34,4 +35,14 @@ body{
     font-size: 30px;
     background-color: #e9704a;
     color: #fff;
+}
+@media screen and (min-width:280px) and (max-width:768px){
+    #rotary {
+        margin: 0 auto;
+        width: 100%;
+        height: 380px;
+    }
+    .draw_btn{
+        font-size: 24px;
+    }
 }
