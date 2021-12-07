@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播抽奖 | Senra Miro</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="shortcut icon" href="https://senramiro.github.io/favicon.ico?v=1638783449299">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://senramiro.github.io/styles/main.css">
+    <link rel="alternate" type="application/atom+xml" title="前端常见问题（ing） | Senra Miro - Atom Feed" href="https://senramiro.github.io/atom.xml">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+    <meta name="description" content="1.onclick=&quot;javascript:&quot;
+&lt;img src=&quot;&quot; onclick=&quot;javascript:location.href='index.php'&quot; &gt;..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+</head>
+
+<body>
+    <div id="rotary">
+    </div>
+
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/javascript">
+        // 加载页面
+        $(function () {
+            let arr = [1,2,3,0,4,7,6,5]
+            for (let i = 0; i < arr.length; i++) {
+                if (i == Math.floor(arr.length / 2)) {
+                    $("#rotary").append($("<div class='draw_box'><button class='draw_btn'>奖励自己</button></div>"))
+                } 
+                let code = $("<div class='draw_box draw_box"+(arr[i])+"'></div>")   //.text(arr[i])
+                code.css({
+                    "background":"url(./images/"+arr[i]+".JPG) no-repeat",
+                    "background-size": "80%",
+                    "background-position": "center"
+                })
+                $("#rotary").append(code)
+            }
+
+        //点击抽奖
+        var stopStep = 1; //表示最终奖品位置  
+        var runT = null; //转动方法  
+        var step = -1; //计算转动的步数，控制转速和停止  
+        var during = 8; //转速,起始转速为8
+        var isRun = false; //是否正在运行，防止重复点击
+
+        $("button").click(function () {
+            if (isRun) return;
+            isRun = true;
+            stopStep = Math.floor(Math.random() * 8 + 1);
+            console.log('最后停止奖品位置', stopStep);
+            runT = setTimeout(runF, 100);
+        });
+
+        function runF() {
+
+            if (step >= (32 + stopStep)) { //设置转动多少圈(奖品的倍数),当进行步数step>=(最大步数+奖品位置步数)，停止动画，用户获得奖品
+                $(".draw_box" + (step % 8)).css("background-color", "#e9704a");
+                step = stopStep; //当前奖品停止位置赋值给step,用于下次开始抽奖起始使用
+                isRun = false;
+                clearTimeout(runT); //停止转动  
+                // alert("you get" + step);
+                return;
+            }
+
+            if (step >= (24 + stopStep)) { //在即将结束转动前减速  
+                during += 1;
+            } else { //控制中间转速
+                if (during <= 2) { //保证最低转速
+                    during = 2;
+                }
+                during--;
+            }
+
+            step++;
+
+            $(".draw_box").each(function () {
+                $(this).css("background-color", "#eee");
+            });
+
+            $(".draw_box" + (step % 8)).css("background-color", "#e9704a");
+
+            runT = setTimeout(runF, during * 50);
+        }
+
+    })
+    </script>
+</body>
+
+</html>
