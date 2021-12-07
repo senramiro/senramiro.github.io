@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* css样式 */
+        body {
+            background: #e5e5e5;
+        }
+
+        /* 瀑布流最外层 */
+        #root {
+            margin: 0 auto;
+            width: 1200px;
+            column-count: 5;
+            column-width: 240px;
+            column-gap: 20px;
+        }
+
+        /* 每一列图片包含层 */
+        .item {
+            margin-bottom: 10px;
+            /* 防止多列布局，分页媒体和多区域上下文中的意外中断 */
+            break-inside: avoid;
+            background: #fff;
+        }
+
+        .item:hover {
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
+        }
+
+        /* 图片 */
+        .itemImg {
+            width: 100%;
+            vertical-align: middle;
+        }
+
+        /* 图片下的信息包含层 */
+        .userInfo {
+            padding: 5px 10px;
+        }
+
+        .avatar {
+            vertical-align: middle;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+
+        .username {
+            margin-left: 5px;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, .2);
+        }
+
+        @media screen and (min-width:280px) and (max-width:768px){
+            #root {
+                margin: 0 auto;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 使用multi-columns实现瀑布流 -->
+    <div id="root">
+        <!-- <div class="item">
+            <img class="itemImg" src="./images/1.JPG" alt="" />
+            <div class="userInfo">
+                <img class="avatar" src="./images/2.JPG" alt="" />
+                <span class="username">牵起你的左手护着你</span>
+            </div>
+        </div> -->
+    </div>
+
+    <script type="text/javascript">
+     (function(){
+        let titleStr = "日子甜甜的，像清晨的柠檬水，像冬日的太阳，像梦里的大海，像第一次遇见你，你掀起山河奔向我，踏尽星辰来访我，而我有整个宇宙想讲给你听，月亮不属于任何一个人，但某一刻，他的光真的照亮过我，行至朝雾里，坠入暮云间，与星辉一同为你沉迷，我的夜空本星空长明，遇到你后寥若星辰，你是守护山川河海的神，是我终身救赎，我们终会在岸边相遇，愿所有的后会无期，都是他日的别来无恙，总之岁月漫长，然而值得等待，青色烟雨，孤影等你归来，你来人间一趟，你要看看太阳，相遇不必太早，所有人都想要拯救世界，点滴温暖都值得我前进。"
+        let titleArr = titleStr.split("，");
+        
+        for (let i = 0; i < titleArr.length; i++) {
+            const title = titleArr[i];
+            let node = document.createElement("div")  
+            let content = `<div class="item"><img class="itemImg" src="./images/`+(i+1)+`.JPG" alt="" /><div class="userInfo"><img class="avatar" src="./images/`+(i+1)+`.JPG" alt="" /><span class="username">`+title+`</span></div></div>`
+            node.innerHTML = content;
+
+            let rootNode = document.getElementById("root")
+            rootNode.appendChild(node)
+        }
+
+     })()
+    </script>
+</body>
+
+</html>
