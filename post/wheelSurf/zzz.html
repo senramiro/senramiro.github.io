@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>朱姿姿的菜单</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="shortcut icon" href="https://senramiro.github.io/favicon.ico?v=1638783449299">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://senramiro.github.io/styles/main.css">
+    <link rel="alternate" type="application/atom+xml" title="朱姿姿的菜单 | Senra Miro - Atom Feed" href="https://senramiro.github.io/atom.xml">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+    <meta name="description" content="1.onclick=&quot;javascript:&quot;
+&lt;img src=&quot;&quot; onclick=&quot;javascript:location.href='index.php'&quot; &gt;..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="main-content" style="min-height: auto;">
+          <div class="site-header">
+            <a href="https://senramiro.github.io">
+            <img class="avatar" src="https://senramiro.github.io/images/avatar.png?v=1638783449299" alt="">
+            </a>
+            <h1 class="site-title">
+                朱姿姿的菜单
+            </h1>
+            <p class="site-description">
+                <button class='zzz_btn draw_btn'>开始</button>
+            </p>
+        </div>
+    </div>
+    <div id="rotary">
+        
+    </div>
+  </div>
+    
+
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/javascript">
+        // 加载页面
+        $(function () {
+            let arr = ["钵钵鸡","辣椒炒肉","西苑中一","馄饨","干扣面","牛肉饭","扬州炒饭","麻辣烫","咖喱饭","鸡翅包饭","西苑面条","饺子","冒菜","炸鸡拌饭","蛋挞","鸡肉盖码饭"];
+            for (let i = 0; i < arr.length; i++) {
+                let code = $("<div class='draw_box zzz_box zzz_box"+(i)+"'></div>").text(arr[i])
+                $("#rotary").append(code)
+            }
+
+        //点击抽奖
+        var stopStep = 1; //表示最终奖品位置  
+        var runT = null; //转动方法  
+        var step = -1; //计算转动的步数，控制转速和停止  
+        var during = 16; //转速,起始转速为16
+        var isRun = false; //是否正在运行，防止重复点击
+
+        $("button").click(function () {
+            if (isRun) return;
+            isRun = true;
+            stopStep = Math.floor(Math.random() * 16 + 1);
+            console.log('最后停止奖品位置', stopStep);
+            runT = setTimeout(runF, 100);
+        });
+
+        function runF() {
+
+            if (step >= (64 + stopStep)) { //设置转动多少圈(奖品的倍数),当进行步数step>=(最大步数+奖品位置步数)，停止动画，用户获得奖品
+                $(".zzz_box" + (step % 16)).css("background-color", "#e9704a");
+                step = stopStep; //当前奖品停止位置赋值给step,用于下次开始抽奖起始使用
+                isRun = false;
+                clearTimeout(runT); //停止转动  
+                // alert("you get" + step);
+                return;
+            }
+
+            if (step >= (48 + stopStep)) { //在即将结束转动前减速  
+                during += 1;
+            } else { //控制中间转速
+                if (during <= 2) { //保证最低转速
+                    during = 2;
+                }
+                during--;
+            }
+
+            step++;
+
+            $(".zzz_box").each(function () {
+                $(this).css({
+                    "background-color":"#fff",
+                    "color":"#000"
+                });
+            });
+
+            $(".zzz_box" + (step % 16)).css({
+                "background-color":"#e9704a",
+                "color":"#fff"
+            });
+
+            runT = setTimeout(runF, during * 50);
+        }
+
+    })
+    </script>
+</body>
+
+</html>

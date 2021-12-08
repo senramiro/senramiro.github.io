@@ -1,7 +1,7 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: #eee;
+    background-color: #fff;
 }
 
 #rotary{
@@ -45,4 +45,15 @@ body{
     .draw_btn{
         font-size: 24px;
     }
+}
+
+/* 朱姿姿的菜单 */
+.zzz_box{
+    width: 25%;
+    height: 25%;
+}
+.zzz_btn{
+    width: auto;
+    padding: 8px 18px;
+    border-radius: 9px;
 }
